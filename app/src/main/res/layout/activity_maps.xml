@@ -23,6 +23,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/ring_now"
-            android:id="@+id/btnRing"/>
+            android:id="@+id/btnRing"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textAllCaps="false"
+            android:background="@color/colorPrimary"
+            android:textColor="#FFFFFF"/>
     </LinearLayout>
 </RelativeLayout>
