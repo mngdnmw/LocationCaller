@@ -3,4 +3,6 @@
     <string name="pechhulp">RSR Pechhulp</string>
     <string name="ring_now">Bel RSR nu</string>
     <string name="title_activity_maps">Map</string>
+    <string name="your_location">Uw locatie:</string>
+    <string name="remember_location">Onthoud deze locatie voor het telefoongesprek</string>
 </resources>
