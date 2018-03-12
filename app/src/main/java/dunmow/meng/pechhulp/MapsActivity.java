@@ -63,22 +63,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
-        TextView toolbarText = findViewById(R.id.toolbar_title);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        if(toolbarText!=null && toolbar!=null) {
-            toolbarText.setText(getResources().getString(R.string.pechhulp));
-            setSupportActionBar(toolbar);
-        }
-
-        ToolbarHelper helper = new ToolbarHelper();
-        Button btnBack = helper.setup(this,1);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
         }
@@ -258,10 +242,27 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Animate a camera with new latlng center and required zoom.
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 13));
 
-        //stop location updates
+        //Stop location updates
         if (mGoogleApiClient != null) {
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
         }
+
+        TextView toolbarText = findViewById(R.id.toolbar_title);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        if(toolbarText!=null && toolbar!=null) {
+            toolbarText.setText(getResources().getString(R.string.pechhulp));
+            setSupportActionBar(toolbar);
+        }
+
+        ToolbarHelper helper = new ToolbarHelper();
+        Button btnBack = helper.setup(this,1);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
 
     }
 

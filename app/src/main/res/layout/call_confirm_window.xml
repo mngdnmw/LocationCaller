@@ -50,6 +50,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
+            android:drawableLeft="@drawable/main_btn_phone"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:paddingStart="70dp"
             android:text="@string/ring"
             android:textAllCaps="false"
             android:textColor="#FFFFFF" />

@@ -11,24 +11,27 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     private Button mBtnRSR;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mBtnRSR =  findViewById(R.id.btnPechhulp);
-        mBtnRSR.setOnClickListener(new View.OnClickListener(){
+        mBtnRSR = findViewById(R.id.btnPechhulp);
+        mBtnRSR.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(MainActivity.this, MapsActivity.class);
-               startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(intent);
             }
         });
 
         TextView toolbarText = findViewById(R.id.toolbar_title);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        if(toolbarText!=null && toolbar!=null) {
+        if (toolbarText != null && toolbar != null) {
             toolbarText.setText(getResources().getString(R.string.app_name));
             setSupportActionBar(toolbar);
         }
@@ -38,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(MainActivity.this, InfoActivity.class);
-//                startActivity(intent);
+                Intent Intent = new Intent(view.getContext(), InfoActivity.class);
+                view.getContext().startActivity(Intent);
             }
         });
     }

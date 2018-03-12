@@ -4,10 +4,12 @@
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <include layout="@layout/toolbar"/>
     <fragment
+        android:layout_marginTop="?attr/actionBarSize"
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="dunmow.meng.pechhulp.MapsActivity">
     </fragment>
@@ -25,8 +27,12 @@
             android:text="@string/ring_now"
             android:id="@+id/btnRing"
             android:layout_marginLeft="10dp"
+            android:drawableLeft="@drawable/main_btn_tel"
             android:layout_marginRight="10dp"
             android:textAllCaps="false"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:paddingStart="70dp"
             android:background="@color/colorPrimary"
             android:textColor="#FFFFFF"/>
     </LinearLayout>

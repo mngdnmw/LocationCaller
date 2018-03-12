@@ -42,10 +42,7 @@ public class ToolbarHelper {
             linBack.addView(button);
         } else {
             LinearLayout linInfo = context.findViewById(R.id.linInfo);
-//            drawable = DrawableCompat.wrap(ContextCompat.getDrawable(context, R.drawable.main_i));
-//            DrawableCompat.setTint(drawable.mutate(), tintColor);
-//            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-//            button.setCompoundDrawables(drawable, null, null, null);
+
             drawable = context.getResources().getDrawable(R.drawable.main_i);
             drawable.setColorFilter(new
                     PorterDuffColorFilter(tintColor, PorterDuff.Mode.MULTIPLY));
