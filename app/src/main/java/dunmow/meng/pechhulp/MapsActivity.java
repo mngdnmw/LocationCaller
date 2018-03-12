@@ -14,6 +14,7 @@ import android.support.v4.app.ActivityCompat;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -62,6 +63,22 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        TextView toolbarText = findViewById(R.id.toolbar_title);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        if(toolbarText!=null && toolbar!=null) {
+            toolbarText.setText(getResources().getString(R.string.pechhulp));
+            setSupportActionBar(toolbar);
+        }
+
+        ToolbarHelper helper = new ToolbarHelper();
+        Button btnBack = helper.setup(this,1);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
         }
@@ -82,7 +99,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private void showPopup(final Activity context) {
 
         // Inflate the popup_layout.xml
-        LinearLayout viewGroup = (LinearLayout) context.findViewById(R.id.linPop);
+        LinearLayout viewGroup = context.findViewById(R.id.linPop);
         LayoutInflater layoutInflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View layout = layoutInflater.inflate(R.layout.call_confirm_window, viewGroup);
@@ -115,6 +132,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "+319007788990"));
                 startActivity(intent);
+                popup.dismiss();
             }
         });
     }
