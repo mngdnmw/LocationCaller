@@ -247,21 +247,21 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
         }
 
-        TextView toolbarText = findViewById(R.id.toolbar_title);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        if(toolbarText!=null && toolbar!=null) {
-            toolbarText.setText(getResources().getString(R.string.pechhulp));
-            setSupportActionBar(toolbar);
-        }
-
-        ToolbarHelper helper = new ToolbarHelper();
-        Button btnBack = helper.setup(this,1);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+//        TextView toolbarText = findViewById(R.id.toolbar_title);
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        if(toolbarText!=null && toolbar!=null) {
+//            toolbarText.setText(getResources().getString(R.string.pechhulp));
+//            setSupportActionBar(toolbar);
+//        }
+//
+//        ToolbarHelper helper = new ToolbarHelper();
+//        Button btnBack = helper.setup(this,1);
+//        btnBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finish();
+//            }
+//        });
 
 
     }

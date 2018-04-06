@@ -31,7 +31,7 @@
             android:drawableStart="@drawable/main_btn_warning"
             android:gravity="center"
             android:paddingStart="70dp"
-            android:text="@string/pechhulp"
+            android:text="@string/title_activity_maps"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />

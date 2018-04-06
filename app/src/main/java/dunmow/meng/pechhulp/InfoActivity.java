@@ -28,22 +28,6 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
-        TextView toolbarText = findViewById(R.id.toolbar_title);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        if (toolbarText != null && toolbar != null) {
-            toolbarText.setText(getResources().getString(R.string.app_info));
-            setSupportActionBar(toolbar);
-        }
-
-        ToolbarHelper helper = new ToolbarHelper();
-        Button btnBack = helper.setup(this, 1);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-
     }
 
 }
