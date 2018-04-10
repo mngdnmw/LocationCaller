@@ -1,15 +1,13 @@
 <resources>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="android:homeAsUpIndicator">@drawable/menu_arrow</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:windowAnimationStyle">@style/Animation.AppCompat.DropDownUp</item>
     </style>
     <style name="AppTheme.ActionBar.Transparent" parent="AppTheme">
         <item name="android:windowContentOverlay">@null</item>
         <item name="windowActionBarOverlay">true</item>
         <item name="colorPrimary">@android:color/transparent</item>
-    </style>
-    <style name="AppTheme.ActionBar.Overlay" parent="AppTheme">
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="windowActionBarOverlay">true</item>
     </style>
 </resources>

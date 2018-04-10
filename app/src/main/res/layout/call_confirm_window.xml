@@ -2,30 +2,47 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/linPop"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:orientation="vertical">
-
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:gravity="start|center_vertical"
-        android:text="@string/cancel"
-        android:padding="10dp"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF" />
+    android:layout_height="300dp"
+    android:layout_gravity="top|center"
+    android:orientation="vertical"
+    android:alpha="0.8"
+    >
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iVCancel"
+            android:layout_width="15sp"
+            android:layout_height="15sp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/main_btn_close"/>
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="25sp"
+            android:background="@color/colorPrimary"
+            android:gravity="start|center_vertical"
+            android:padding="0sp"
+            android:text="@string/cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
         android:orientation="vertical"
-        android:paddingLeft="60dp"
-        android:paddingRight="60dp"
-        android:paddingTop="20dp"
         android:paddingBottom="20dp"
-        android:background="#CCCAD300">
+        android:paddingTop="20dp">
 
         <TextView
             android:id="@+id/txtview1"
@@ -33,29 +50,34 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/costs"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold" />
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/txtview2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="15sp"
             android:gravity="center"
             android:text="@string/notification_costs"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/btnRingConfirm"
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
             android:background="@color/colorPrimary"
-            android:drawableLeft="@drawable/main_btn_phone"
-            android:textSize="20dp"
+            android:drawableStart="@drawable/main_btn_phone"
+            android:drawablePadding="0sp"
             android:gravity="center"
-            android:paddingStart="70dp"
+            android:paddingStart="40sp"
+            android:paddingEnd="40sp"
             android:text="@string/ring"
             android:textAllCaps="false"
-            android:textColor="#FFFFFF" />
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
     </LinearLayout>
 </LinearLayout>

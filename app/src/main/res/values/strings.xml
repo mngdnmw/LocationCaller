@@ -7,7 +7,6 @@
     <string name="remember_location">Onthoud deze locatie voor het telefoongesprek</string>
     <string name="cancel">Annuleren</string>
     <string name="ring">Bel nu</string>
-    <string name="back">Terug</string>
     <string name="costs">Belkosten</string>belkosten
     <string name="notification_costs">Voor dit nummer betaalt u uw gebruikelijke belkosten.</string>
     <string name="RSR_info">Met de hulp van RSR blijft u mobiel. RSR is dé leverancuer van hulpmiddelen
@@ -17,5 +16,4 @@
         van 8.00 tot 17.00 uur. Hier kunt u diverse hulpmiddenlen uitproberen en rustig bekijken wat
         goed bij uw situatie aansluit. Samen met u zoeken we naar hulpmiddelen dat bij u past.
         RSR maakt mensen mobiel.</string>
-
 </resources>

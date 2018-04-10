@@ -54,4 +54,6 @@ public class MainActivity extends AppCompatActivity {
         Intent addFriendIntent = new Intent(this, InfoActivity.class);
         startActivityForResult(addFriendIntent, 1);
     }
+
+
 }

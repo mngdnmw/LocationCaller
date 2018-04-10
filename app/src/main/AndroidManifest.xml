@@ -30,7 +30,7 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.ActionBar.Overlay" />
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".InfoActivity"
             android:label="@string/title_activity_info"

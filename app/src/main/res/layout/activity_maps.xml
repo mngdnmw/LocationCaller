@@ -1,38 +1,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
     <fragment
-        android:layout_marginTop="?attr/actionBarSize"
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="dunmow.meng.pechhulp.MapsActivity">
     </fragment>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
         android:gravity="center|bottom"
         android:orientation="vertical"
-        android:padding="10dp"
-        android:layout_marginBottom="10dp">
+        android:padding="10dp">
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/ring_now"
             android:id="@+id/btnRing"
-            android:layout_marginLeft="10dp"
-            android:drawableLeft="@drawable/main_btn_tel"
-            android:layout_marginRight="10dp"
-            android:textAllCaps="false"
-            android:textSize="20dp"
-            android:gravity="center"
-            android:paddingStart="70dp"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:textColor="#FFFFFF"/>
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/main_btn_tel"
+            android:gravity="center"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:text="@string/ring_now"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
     </LinearLayout>
 </RelativeLayout>
