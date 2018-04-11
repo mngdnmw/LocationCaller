@@ -2,7 +2,8 @@
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="android:homeAsUpIndicator">@drawable/menu_arrow</item>
-        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowContentOverlay">@drawable/btn_bg</item>
         <item name="android:windowAnimationStyle">@style/Animation.AppCompat.DropDownUp</item>
     </style>
     <style name="AppTheme.ActionBar.Transparent" parent="AppTheme">

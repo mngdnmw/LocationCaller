@@ -45,12 +45,10 @@ import java.util.Locale;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     //Member variables
     private GoogleMap mMap;
     private Location mCurrentLocation;
     private Button mBtnRing;
-    // A service to get the current location
     private FusedLocationProviderClient mFusedLocationClient;
 
 
@@ -75,7 +73,9 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
      * Checks permission and tries to get current location if received. Sets mCurrentLocation from the result.
      */
     private void getCurrentLocation() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
                     1);
@@ -112,15 +112,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
         //Place current location marker
-        LatLng currentLocation = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
+        final LatLng currentLocationLatLng = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
         MarkerOptions markerOptions = new MarkerOptions();
-        BitmapDescriptor popup = BitmapDescriptorFactory.fromResource(R.drawable.map_marker);
+        BitmapDescriptor markerPopup = BitmapDescriptorFactory.fromResource(R.drawable.map_marker);
 
-        markerOptions.position(currentLocation).icon(popup);
+        markerOptions.position(currentLocationLatLng).icon(markerPopup);
         Marker currentLocationMarker = mMap.addMarker(markerOptions);
 
-
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocation, 13));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLocationLatLng, 13));
 
         // Setting a custom info window adapter for the google map
         mMap.setInfoWindowAdapter(new InfoWindowAdapter() {
@@ -129,19 +128,18 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public View getInfoWindow(Marker marker) {
 
-                View view = getLayoutInflater().inflate(R.layout.location_window_popup, null);
-                LatLng markerLatLng = marker.getPosition();
-                TextView address = view.findViewById(R.id.txtViewAddress);
-                String addressString = markerLatLng.latitude + " , " + markerLatLng.longitude;
+                View popupView = getLayoutInflater().inflate(R.layout.location_window_popup, null);
+                TextView address = popupView.findViewById(R.id.txtVwAddress);
+                String addressString = currentLocationLatLng.latitude + " , " + currentLocationLatLng.longitude;
 
                 //Setting marker popup to display the address, if none is found will set it to gps location
-                if (getAddressFromLatLng(markerLatLng) != null) {
-                    addressString = getAddressFromLatLng(markerLatLng);
+                if (getAddressFromLatLng(currentLocationLatLng) != null) {
+                    addressString = getAddressFromLatLng(currentLocationLatLng);
                 }
                 address.setText(addressString);
 
                 // Returning the view containing InfoWindow contents
-                return view;
+                return popupView;
 
             }
 
@@ -149,7 +147,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public View getInfoContents(Marker arg0) {
                 return null;
-
             }
 
         });
@@ -166,10 +163,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
      */
     public String getAddressFromLatLng(LatLng latLng) {
 
-        Geocoder gc = new Geocoder(getApplicationContext(), Locale.getDefault());
+        Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
 
         try {
-            List<Address> addresses = gc.getFromLocation(latLng.latitude, latLng.longitude, 1);
+            List<Address> addresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
 
             if (addresses != null && !addresses.isEmpty()) {
                 return (addresses.get(0).getAddressLine(0) + ", " +
@@ -197,51 +194,51 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mBtnRing.setVisibility(View.GONE);
 
         // Inflate the popup_layout.xml
-        LinearLayout viewGroup = context.findViewById(R.id.linPop);
+        LinearLayout linLayViewGroup = context.findViewById(R.id.linLayPopup);
         LayoutInflater layoutInflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View layout = layoutInflater.inflate(R.layout.call_confirm_window, viewGroup);
+        View layoutVw = layoutInflater.inflate(R.layout.call_confirm_window, linLayViewGroup);
 
-        // Creating the PopupWindow
-        final PopupWindow popup = new PopupWindow(context);
-        popup.setContentView(layout);
-        popup.setFocusable(true);
-        popup.setHeight(650);
-        popup.setWidth(750);
+        // Creating the Popup Window
+        final PopupWindow confirmCallPopup = new PopupWindow(context);
+        confirmCallPopup.setContentView(layoutVw);
+        confirmCallPopup.setFocusable(true);
+        confirmCallPopup.setHeight(650);
+        confirmCallPopup.setWidth(750);
 
         // Clear the default translucent background
-        popup.setBackgroundDrawable(new BitmapDrawable());
+        confirmCallPopup.setBackgroundDrawable(new BitmapDrawable());
 
         // Displaying the popup at the specified location, + offsets.
-        popup.showAtLocation(layout, Gravity.BOTTOM, 0, 30);
+        confirmCallPopup.showAtLocation(layoutVw, Gravity.BOTTOM, 0, 30);
 
         // Getting a reference to Close button, and close the popup when clicked.
-        Button close = layout.findViewById(R.id.btnCancel);
-        ImageView cancel = layout.findViewById(R.id.iVCancel);
-        cancel.setOnClickListener(new View.OnClickListener() {
+        Button btnCancel = layoutVw.findViewById(R.id.btnCancel);
+        ImageView imgVwCancel = layoutVw.findViewById(R.id.imgVwCancel);
+        imgVwCancel.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                popup.dismiss();
+                confirmCallPopup.dismiss();
                 mBtnRing.setVisibility(View.VISIBLE);
             }
         });
-        close.setOnClickListener(new View.OnClickListener() {
+        btnCancel.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                popup.dismiss();
+                confirmCallPopup.dismiss();
                 mBtnRing.setVisibility(View.VISIBLE);
             }
         });
 
-        Button callConfirm = layout.findViewById(R.id.btnRingConfirm);
-        callConfirm.setOnClickListener(new View.OnClickListener() {
+        Button bntCallConfirm = layoutVw.findViewById(R.id.btnRingConfirm);
+        bntCallConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + "+319007788990"));
                 startActivity(intent);
-                popup.dismiss();
+                confirmCallPopup.dismiss();
             }
         });
     }

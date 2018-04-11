@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/linPop"
+    android:id="@+id/linLayPopup"
     android:layout_width="wrap_content"
     android:layout_height="300dp"
     android:layout_gravity="top|center"
@@ -15,7 +15,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/iVCancel"
+            android:id="@+id/imgVwCancel"
             android:layout_width="15sp"
             android:layout_height="15sp"
             android:layout_gravity="center"
@@ -27,7 +27,7 @@
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="25sp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/btn_general"
             android:gravity="start|center_vertical"
             android:padding="0sp"
             android:text="@string/cancel"
@@ -45,7 +45,7 @@
         android:paddingTop="20dp">
 
         <TextView
-            android:id="@+id/txtview1"
+            android:id="@+id/txtVwTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -54,7 +54,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/txtview2"
+            android:id="@+id/txtVwInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="15sp"
