@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -23,12 +23,19 @@ public class MainActivity extends AppCompatActivity {
         setupCommonLayout();
     }
 
+    /**
+     * Checks if the screen is more than 600dp.
+     * @return boolean
+     */
     private boolean isTabletScreen() {
         ScreenSizeHelper screenSizeHelper = new ScreenSizeHelper(this);
         return screenSizeHelper.isTabletScreen();
     }
 
 
+    /**
+     * Set up the common features of both tablet and mobile layouts.
+     */
     private void setupCommonLayout() {
 
         //Setting up of the button that goes to the map activity
@@ -47,11 +54,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Set up the specific features for tablet layouts.
+     */
     private void setupTabletLayout(Button btnGoToMap, Drawable drawableIcon, LinearLayout linLayBtnGrp, LinearLayout.LayoutParams linParams) {
 
         //Adding more padding to the linear layout that holds the two buttons
         FrameLayout.LayoutParams fraLayParams = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        fraLayParams.setMargins(400,0, 400, 50);
+        fraLayParams.setMargins(400, 0, 400, 50);
         linLayBtnGrp.setLayoutParams(fraLayParams);
 
         //Changing params for button that goes to map activity
@@ -59,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         btnGoToMap.setCompoundDrawables(drawableIcon, null, null, null);
         btnGoToMap.setPadding(100, 0, 100, 0);
         btnGoToMap.setTextSize(15);
-        linParams.setMargins(0,0,0,20);
+        linParams.setMargins(0, 0, 0, 20);
         linLayBtnGrp.addView(btnGoToMap, linParams);
 
         //Setting up of the button that goes to the information activity
@@ -73,8 +83,25 @@ public class MainActivity extends AppCompatActivity {
         btnGoToInfo.setTextSize(15);
         linLayBtnGrp.addView(btnGoToInfo);
 
+        //Setting up listeners for buttons
+        btnGoToInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToInfoActivity();
+            }
+        });
+        btnGoToMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToMapActivity();
+            }
+        });
+
     }
 
+    /**
+     * Set up the specific features for mobile layouts.
+     */
     private void setupPhoneLayout(Button btnGoToMap, Drawable drawableIcon, LinearLayout relaLayBtnGrp, LinearLayout.LayoutParams linParams) {
         //Changing params for button that goes to map activity
         drawableIcon.setBounds(0, 0, 60, 60);
@@ -82,6 +109,14 @@ public class MainActivity extends AppCompatActivity {
         btnGoToMap.setPadding(100, 0, 100, 0);
         btnGoToMap.setTextSize(15);
         relaLayBtnGrp.addView(btnGoToMap, linParams);
+
+        //Setting up listener for button
+        btnGoToMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToMapActivity();
+            }
+        });
     }
 
 
@@ -96,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         int menuId = item.getItemId();
         switch (menuId) {
             case R.id.menuItem_info:
-                openInfo();
+                goToInfoActivity();
                 break;
             default:
                 break;
@@ -104,9 +139,14 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void openInfo() {
-        Intent addFriendIntent = new Intent(this, InfoActivity.class);
-        startActivityForResult(addFriendIntent, 1);
+    private void goToInfoActivity() {
+        Intent addFriendIntent = new Intent(MainActivity.this, InfoActivity.class);
+        startActivity(addFriendIntent);
+    }
+
+    private void goToMapActivity() {
+        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+        startActivity(intent);
     }
 
 
