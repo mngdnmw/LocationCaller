@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         if (!isTabletScreen()) {
             setupPhoneLayout(btnGoToMap, btnDrawableWarning, relaLayBtnGrp, layoutParams);
         } else {
+            invalidateOptionsMenu();
             setupTabletLayout(btnGoToMap, btnDrawableWarning, relaLayBtnGrp, layoutParams);
         }
 
@@ -123,7 +124,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-        return super.onCreateOptionsMenu(menu);
+        if (isTabletScreen()) {
+
+            menu.findItem(R.id.menuItem_info).setVisible(false);
+        }
+        return true;
     }
 
     @Override
