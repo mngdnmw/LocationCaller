@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="main_btn_group_outer">25dp</dimen>
+    <dimen name="info_img_bottom">5dp</dimen>
 </resources>

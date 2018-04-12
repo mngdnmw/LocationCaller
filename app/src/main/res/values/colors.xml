@@ -3,6 +3,7 @@
     <color name="colorPrimary">#0092BB</color>
     <color name="colorPrimaryDark">#007596</color>
     <color name="colorAccent">#0092BB</color>
-    <color name="textColor">#FFFFFF</color>
+    <color name="whiteTextColor">#FFFFFF</color>
+    <color name="blackTextColor">#000000</color>
     <color name="defaultBckgrndColor">#FFFFFF</color>
 </resources>
