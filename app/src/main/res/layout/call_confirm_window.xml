@@ -9,6 +9,7 @@
     >
 
     <LinearLayout
+        android:id="@+id/linLayCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
@@ -32,7 +33,6 @@
             android:padding="0sp"
             android:text="@string/cancel"
             android:textAllCaps="false"
-            android:textColor="@color/colorWhite"
             android:textSize="15sp" />
     </LinearLayout>
 
@@ -50,7 +50,6 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/costs"
-            android:textColor="@color/colorWhite"
             android:textSize="20sp" />
 
         <TextView
@@ -60,7 +59,6 @@
             android:layout_margin="15sp"
             android:gravity="center"
             android:text="@string/notification_costs"
-            android:textColor="@color/colorWhite"
             android:textSize="15sp" />
 
         <Button
@@ -77,7 +75,6 @@
             android:paddingEnd="40sp"
             android:text="@string/ring"
             android:textAllCaps="false"
-            android:textColor="@color/colorWhite"
             android:textSize="20sp" />
     </LinearLayout>
 </LinearLayout>

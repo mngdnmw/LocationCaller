@@ -1,9 +1,11 @@
-package dunmow.meng.pechhulp;
+package dunmow.meng.pechhulp.controllers;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import dunmow.meng.pechhulp.R;
 
 public class SplashActivity extends AppCompatActivity {
 

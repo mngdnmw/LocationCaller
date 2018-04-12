@@ -1,4 +1,4 @@
-package dunmow.meng.pechhulp;
+package dunmow.meng.pechhulp.controllers;
 
 import android.Manifest;
 import android.app.Activity;
@@ -19,7 +19,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -42,6 +41,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+
+import dunmow.meng.pechhulp.R;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -213,24 +214,33 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         confirmCallPopup.showAtLocation(layoutVw, Gravity.BOTTOM, 0, 30);
 
         // Getting a reference to Close button, and close the popup when clicked.
-        Button btnCancel = layoutVw.findViewById(R.id.btnCancel);
-        ImageView imgVwCancel = layoutVw.findViewById(R.id.imgVwCancel);
-        imgVwCancel.setOnClickListener(new View.OnClickListener() {
+//        Button btnCancel = layoutVw.findViewById(R.id.btnCancel);
+//        ImageView imgVwCancel = layoutVw.findViewById(R.id.imgVwCancel);
+//        imgVwCancel.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                confirmCallPopup.dismiss();
+//                mBtnRing.setVisibility(View.VISIBLE);
+//            }
+//        });
+//        btnCancel.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                confirmCallPopup.dismiss();
+//                mBtnRing.setVisibility(View.VISIBLE);
+//            }
+//        });
+
+        LinearLayout linLayCancelGroup = layoutVw.findViewById(R.id.linLayCancel);
+        linLayCancelGroup.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 confirmCallPopup.dismiss();
                 mBtnRing.setVisibility(View.VISIBLE);
-            }
-        });
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                confirmCallPopup.dismiss();
-                mBtnRing.setVisibility(View.VISIBLE);
-            }
-        });
+            }});
 
         Button bntCallConfirm = layoutVw.findViewById(R.id.btnRingConfirm);
         bntCallConfirm.setOnClickListener(new View.OnClickListener() {

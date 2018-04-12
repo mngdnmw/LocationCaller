@@ -1,7 +1,9 @@
-package dunmow.meng.pechhulp;
+package dunmow.meng.pechhulp.controllers;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import dunmow.meng.pechhulp.R;
 
 public class InfoActivity extends AppCompatActivity {
 

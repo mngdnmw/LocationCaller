@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name=".controllers.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,20 +21,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".controllers.MainActivity"
             android:theme="@style/AppTheme" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
         <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"
-            android:parentActivityName=".MainActivity"
+            android:name=".controllers.MapsActivity"
+            android:label="@string/activity_maps"
+            android:parentActivityName=".controllers.MainActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".InfoActivity"
-            android:label="@string/title_activity_info"
-            android:parentActivityName=".MainActivity"
+            android:name=".controllers.InfoActivity"
+            android:label="@string/activity_info"
+            android:parentActivityName=".controllers.MainActivity"
             android:theme="@style/AppTheme" />
 
     </application>
