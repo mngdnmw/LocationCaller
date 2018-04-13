@@ -21,5 +21,7 @@
         android:layout_height="match_parent"
         android:gravity="center|bottom"
         android:orientation="vertical"
-        android:padding="@dimen/main_btn_group_outer" />
+        android:paddingEnd="@dimen/btn_group_outer"
+        android:paddingStart="@dimen/btn_group_outer"
+        android:paddingBottom="@dimen/btn_group_bottom" />
 </FrameLayout>

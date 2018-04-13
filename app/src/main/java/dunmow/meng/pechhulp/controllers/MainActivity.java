@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Adding more padding to the linear layout that holds the two buttons
         FrameLayout.LayoutParams fraLayParams = new FrameLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        fraLayParams.setMargins(400, 0, 400, 50);
+        fraLayParams.setMargins(300, 0, 300, 70);
         linLayBtnGrp.setLayoutParams(fraLayParams);
 
         //Changing params for button that goes to map activity

@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relaLayMap"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -9,29 +10,27 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="dunmow.meng.pechhulp.controllers.MapsActivity">
-    </fragment>
+        tools:context="dunmow.meng.pechhulp.controllers.MapsActivity"/>
 
     <LinearLayout
+        android:id="@+id/linLayBottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="10dp"
-        android:gravity="center|bottom"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:gravity="bottom"
+        android:paddingLeft="@dimen/btn_group_outer"
+        android:paddingRight="@dimen/btn_group_outer">
 
         <Button
             android:id="@+id/btnRing"
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/btn_group_bottom"
             android:background="@drawable/btn_general"
-            android:drawablePadding="10dp"
             android:drawableStart="@drawable/main_btn_tel"
             android:gravity="center"
-            android:paddingEnd="20dp"
-            android:paddingStart="20dp"
+            android:paddingEnd="@dimen/call_btn_height"
+            android:paddingStart="@dimen/call_btn_height"
             android:text="@string/ring_now"
-            android:textAllCaps="false"
-            android:textSize="20sp" />
+            android:textAllCaps="false" />
     </LinearLayout>
 </RelativeLayout>

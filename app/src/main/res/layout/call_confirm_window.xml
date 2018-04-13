@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/linLayPopup"
     android:layout_width="wrap_content"
-    android:layout_height="300dp"
+    android:layout_height="@dimen/call_popup_height"
     android:layout_gravity="top|center"
     android:orientation="vertical"
     android:alpha="0.8"
@@ -17,32 +17,30 @@
 
         <ImageView
             android:id="@+id/imgVwCancel"
-            android:layout_width="15sp"
-            android:layout_height="15sp"
+            android:layout_width="@dimen/cross_dimensions"
+            android:layout_height="@dimen/cross_dimensions"
             android:layout_gravity="center"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="5dp"
+            android:layout_marginEnd="@dimen/cross_margins"
+            android:layout_marginStart="@dimen/cross_margins"
             android:src="@drawable/main_btn_close"/>
 
         <Button
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
-            android:layout_height="25sp"
-            android:background="@drawable/btn_general"
+            android:layout_height="@dimen/call_btn_height"
+            android:background="@color/colorPrimary"
             android:gravity="start|center_vertical"
-            android:padding="0sp"
             android:text="@string/cancel"
-            android:textAllCaps="false"
-            android:textSize="15sp" />
+            android:textAllCaps="false" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
+        android:background="@color/green"
         android:orientation="vertical"
-        android:paddingBottom="20dp"
-        android:paddingTop="20dp">
+        android:paddingBottom="@dimen/popup_padding"
+        android:paddingTop="@dimen/popup_padding">
 
         <TextView
             android:id="@+id/txtVwTitle"
@@ -58,23 +56,20 @@
             android:layout_height="wrap_content"
             android:layout_margin="15sp"
             android:gravity="center"
-            android:text="@string/notification_costs"
-            android:textSize="15sp" />
+            android:text="@string/notification_costs" />
 
         <Button
             android:id="@+id/btnRingConfirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="10dp"
-            android:background="@color/colorPrimary"
+            android:layout_marginEnd="@dimen/popup_btn_margin"
+            android:layout_marginStart="@dimen/popup_btn_margin"
+            android:background="@drawable/btn_general"
             android:drawableStart="@drawable/main_btn_phone"
-            android:drawablePadding="0sp"
             android:gravity="center"
-            android:paddingStart="40sp"
-            android:paddingEnd="40sp"
+            android:paddingStart="@dimen/popup_btn_padding"
+            android:paddingEnd="@dimen/popup_btn_padding"
             android:text="@string/ring"
-            android:textAllCaps="false"
-            android:textSize="20sp" />
+            android:textAllCaps="false"/>
     </LinearLayout>
 </LinearLayout>
